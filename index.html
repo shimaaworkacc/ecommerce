@@ -1,0 +1,83 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ecommerce</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="text-center">
+  <nav class="navbar bg-body-tertiary">
+              <h1 class="position-absolute top-0 start-0 ms-2">Ecommerce</h1>
+
+    <div class="container-fluid">
+
+      <div class="d-flex w-50 mx-auto" role="search">
+        <input oninput="searchProducts(this)" class="form-control" type="search" placeholder="Search"
+          aria-label="Search" />
+      </div>
+    </div>
+  </nav>
+      <p class="my-2 h3 text-danger" id="foundResults"></p>
+
+  <div id="searchResults" class="row row-gap-1 px-md-5">
+
+  </div>
+
+
+  <section>
+    <h2 class="mt-5 h3 text-capitalize">All Prodcuts</h2>
+
+    <div id="productList" class="row row-gap-1 px-md-5">
+
+    </div>
+  </section>
+      <h2 class="mt-5 h3 text-capitalize">Add new products</h2>
+
+    <section class="container py-4">
+    <div id="bookmarkForm" class="mb-3">
+      <div class="mb-3 text-start">
+        <input type="text" oninput="validateName()" class="form-control" id="productName" placeholder="Product Name"
+          required>
+        <p class="text-danger d-none" id="nameError"> At least 3 characters required</p>
+      </div>
+      <div class="mb-3 text-start">
+        <input type="number" oninput="validatePrice()" class="form-control" id="productPrice"
+          placeholder="Product Price" required>
+        <p class="text-danger d-none" id="priceError"> Price must be between 6000 and 60000</p>
+      </div>
+      <div class="mb-3 text-start">
+        <select class="form-control" id="productCategory" required>
+          <option value="" disabled selected>Select Product Category</option>
+          <option value="phones">phones</option>
+          <option value="accessories">accessories</option>
+          <option value="laptops">laptops</option>
+          <option value="appliances">appliances</option>
+        </select>
+        <p class="text-danger d-none" id="categoryError"> Please select a category</p>
+      </div>
+
+      <div class="mb-3 text-start">
+        <input type="file" oninput="validateImage()" class="form-control" id="productImage" placeholder="Product Image"
+          required>
+        <p class="text-danger d-none" id="imageError"> Please select an image</p>
+      </div>
+      <div class="mb-3 text-start">
+        <textarea oninput="validateDescription()" class="form-control" id="productDesc"
+          placeholder="Product Description" required></textarea>
+        <p class="text-danger d-none" id="descError"> Maximum 250 characters</p>
+      </div>
+
+      <button type="button" class="btn btn-primary border-0" id="submitBtn" onclick="addProduct()">Add New
+        Product</button>
+      <button type="button" class="btn btn-primary border-0 d-none bg-info" id="editBtn" onclick="updateProduct()">Edit
+        Product</button>
+    </div>
+  </section>
+  <script src="js/index.js"></script>
+
+</html>
